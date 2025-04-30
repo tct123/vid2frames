@@ -28,7 +28,7 @@ def video_to_frames(video_path):
         total_frames = int(video.fps * video.duration)
         for i, frame in enumerate(video.iter_frames(with_times=False)):
             frame_filename = os.path.join(frames_folder, f"frame_{i:04d}.jpg")
-            frame.saveframe(frame_filename)
+            video.save_frame(frame_filename, t=i / video.fps)
             progress = (i / total_frames) * 100
             print(f"\rUmwandeln: {progress:.2f}% abgeschlossen", end="")
         print(f"\nExtrahiert {i + 1} Frames nach {frames_folder}")
