@@ -11,6 +11,7 @@ def scan_directory(directory_path):
             for entry in entries:
                 if entry.is_file():
                     files.append(entry.name)
+            return files
     except FileNotFoundError:
         print(f"Das Verzeichnis '{directory_path}' existiert nicht.")
     except PermissionError:
@@ -25,7 +26,9 @@ def create_pdf_with_image(image_folder, pdf_path="output.pdf"):
     # Füge ein Bild hinzu
     try:
         for image in scan_directory(directory_path="frames"):
-            c.drawImage("{image_folder}", 100, height - 300, width=200, height=150)
+            c.drawImage(
+                f"{image_folder}/{image}", 100, height - 300, width=200, height=150
+            )
     except:
         pass
 
