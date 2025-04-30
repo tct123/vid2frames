@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 *.mp4
 *.jpg
+*.pdf
